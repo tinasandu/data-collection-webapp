@@ -12,7 +12,6 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="example" element={<ExamplePage />} />
-        
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

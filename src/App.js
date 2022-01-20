@@ -25,7 +25,6 @@ function App() {
       Hi! Thanks for taking the time! 
       Please add your name and the password :)
       </p>
-    <TextField color="primary" id="outlined-basic" padding="5px" label="Please add your name" variant="outlined"/>
     <TextField name='password' 
                color="warning" 
                id="outlined-basic" 
