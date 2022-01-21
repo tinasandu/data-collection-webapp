@@ -25,8 +25,8 @@ export class ExamplePage extends React.Component {
     event.preventDefault();
 
     const user_snapshots = {
-      user : this.user,
-      snaps : this.snapshots
+      user : this.state.observerName,
+      snaps : this.state.snapshots
     }
 
     console.log(user_snapshots);
