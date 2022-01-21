@@ -25,14 +25,17 @@ export class ExamplePage extends React.Component {
     event.preventDefault();
 
     const user_snapshots = {
-      user : this.user,
+      user : this.observerName,
       snaps : this.snapshots
     }
 
+    const user = "hello"
+
     console.log(user_snapshots);
     axios.post(`https://ayj8v6xmp0.execute-api.us-east-1.amazonaws.com/prod/form`, 
-                { user_snapshots },
-                { headers: {'content-type': 'application/json'}})
+                { user },
+                { headers: {'content-type': 'application/json',
+                            'Access-Control-Allow-Origin': '*'}})
       .then(res => {
         console.log(res);
         console.log(res.data);
