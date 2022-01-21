@@ -14,7 +14,7 @@ export class ExamplePage extends React.Component {
       time: 0
     };
 
-    this.snapshots = []
+    this.snapshots = [];
   }
 
   handleTextChange = event => {
@@ -26,10 +26,11 @@ export class ExamplePage extends React.Component {
 
     const user_snapshots = {
       user : this.state.observerName,
-      snaps : this.state.snapshots
+      snaps : this.snapshots
     }
-
+    
     console.log(user_snapshots);
+
     axios.post(`https://ayj8v6xmp0.execute-api.us-east-1.amazonaws.com/prod/form`, 
                 { user_snapshots },
                 { headers: {'content-type': 'application/json'}})
@@ -53,7 +54,7 @@ export class ExamplePage extends React.Component {
     let currState = this.state
     this.snapshots.push(currState)
 
-    console.log("Snapshot" + this.snapshots)
+    console.log("Snapshot " + this.snapshots)
   };
 
   ref = player => {
