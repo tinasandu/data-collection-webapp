@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ExamplePage from './components/ExamplePage';
+import SendPage from './components/SendPage';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,6 +13,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="example" element={<ExamplePage />} />
+        <Route path="videosPage" element={<SendPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

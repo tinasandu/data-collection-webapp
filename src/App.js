@@ -1,50 +1,84 @@
 import './App.css';
-import React, { useState }  from 'react';
-import { TextField } from '@mui/material';
-import { useNavigate, Link} from "react-router-dom";
+import React from 'react';
+import { TextField, Button } from '@mui/material';
+import ConditionalLink from './components/ConditionalLink';
+import axios from 'axios';
+import { Box } from '@mui/material/node_modules/@mui/system';
 
-const ConditionalLink = ({ children, to, condition }) => (!!condition && to)
-      ? <Link to={to}>{children}</Link>
-      : <>{children}</>;
+export class App extends React.Component {
 
-function App() {
-  function GoButtonOnClick() {
-    console.log("changed Page")
-    let navigate = useNavigate()
-    if (password === "hello") {
-      navigate("/example")
+  constructor(props) {
+    super(props);
+    this.state = {
+      observerName: "" ,
+      password: "",
+      information: "",
+      links : {}
     }
-    console.log("changed Page")
   }
 
-  const [ password, setPassword ] = useState('');
-  return (
-    <div className="App">
-      <header className="App-header">
-      <p>
-      Hi! Thanks for taking the time! 
-      Please add your name and the password :)
-      </p>
-    <TextField name='password' 
-               color="warning" 
-               id="outlined-basic" 
-               padding="5px" 
-               label="Please add the password" 
-               variant="outlined"
-               value={password}
-               onChange={e => {
-                 setPassword(e.target.value)
-                 console.log(password) 
-                }
-               }/>
-    {/* <Button id="Go Button" variant="contained" onClick={e=>GoButtonOnClick()}>Let's Go!</Button> */}
-    <nav>
-      <ConditionalLink to="/example" condition={password==="hello"}>Let's Go!
-      </ConditionalLink>
-    </nav>
-      </header>
-    </div>
-  );
+  handleNameChange = event => {
+    this.setState({ observerName: event.target.value });
+  }
+
+  handlePasswordChange = event => {
+    this.setState({ password: event.target.value });
+  }
+
+  handleDegreeChange = event => {
+    this.setState({ information: event.target.value });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <p>
+            Hi! Thanks for taking the time!
+
+            Please add your name and the passcode.
+          </p>
+
+          <Box sx={{
+        '& .MuiTextField-root': { m: 1, width: '20ch' },
+            }}>
+          <TextField color="primary"
+            id="name"
+            padding="5px"
+            label="Please add your name"
+            variant="outlined"
+            onChange={this.handleNameChange}/>
+
+          <div> 
+
+          <TextField 
+            name='degree'
+            id="degree"
+            label="Please add your degree or background"
+            variant="outlined"
+            onChange={this.handleDegreeChange}/>   
+          </div>
+
+          <TextField 
+            name='password'
+            id="password"
+            label="Please add the password"
+            variant="outlined"
+            type="password"
+            onChange={this.handlePasswordChange}/>
+
+          </Box> 
+
+          <nav>
+            <ConditionalLink to="/videosPage" 
+            passState={this.state}
+            links = {this.state.links}
+            >Let's Go!</ConditionalLink>
+          </nav>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;

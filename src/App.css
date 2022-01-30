@@ -3,19 +3,21 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #d6ebf3;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
+  padding: 5px;
+  margin: 5px;
 }
 
 .textfield {
   height: 30px;
-  color: white;
+  color: black;
 }
 
 .App-link {
