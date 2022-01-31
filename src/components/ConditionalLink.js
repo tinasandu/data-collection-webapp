@@ -9,13 +9,13 @@ function ConditionalLink({ children, to, condition, passState }) {
     
     if ((to)) {
         if (links === undefined || links === 0) { 
-            console.log(passState.password)
             const pass = passState.password
             axios.get( 'https://ayj8v6xmp0.execute-api.us-east-1.amazonaws.com/prod/form',
                     { headers: {'content-type': 'application/json',
                                 'pass' : pass}})
             .then(res => {
                 setLinks( res.data.links)
+                console.log(res.data.links)
             })
         }
         return (

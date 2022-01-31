@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './Auth';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ExamplePage from './components/ExamplePage';
 import SendPage from './components/SendPage';
+import Page1 from './components/pages/Page1';
+import Page2 from './components/pages/Page2';
+import Page3 from './components/pages/Page3';
+import Page4 from './components/pages/Page4';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,7 +17,11 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="example" element={<ExamplePage />} />
-        <Route path="videosPage" element={<SendPage />} />
+        <Route path="tutorial" element={<SendPage />} />
+        <Route path="video1" element={<Page1 />} />
+        <Route path="video2" element={<Page2 />} />
+        <Route path="video3" element={<Page3 />} />
+        <Route path="video4" element={<Page4 />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

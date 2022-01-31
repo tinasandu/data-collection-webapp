@@ -1,4 +1,4 @@
-import './App.css';
+import './Auth.css';
 import React from 'react';
 import { TextField, Button } from '@mui/material';
 import ConditionalLink from './components/ConditionalLink';
@@ -70,7 +70,7 @@ export class App extends React.Component {
           </Box> 
 
           <nav>
-            <ConditionalLink to="/videosPage" 
+            <ConditionalLink to="/tutorial" 
             passState={this.state}
             links = {this.state.links}
             >Let's Go!</ConditionalLink>

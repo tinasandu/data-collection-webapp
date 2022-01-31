@@ -9,4 +9,20 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: black; 
-  }
+}
+
+.navbar {
+    margin:30px;
+}
+.ExamplePage-instructions {
+    font-size: calc(10px + 1vmin) ;
+    width: 70%;
+    padding: auto;
+    align-content: center;
+    text-align: center;
+}
+
+.SendPage {
+    text-align: center;
+    align-items: center;
+}

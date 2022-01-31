@@ -1,7 +1,7 @@
 import './ExamplePage.css';
 import React from 'react';
 import ReactPlayer from 'react-player'
-import { Box, Slider, Button } from "@mui/material";
+import { Slider, Button, TextField } from "@mui/material";
 import axios from 'axios';
 import { format } from 'react-string-format';
 
@@ -13,20 +13,19 @@ export class ExamplePage extends React.Component {
     this.observerName = props.observerName;
     this.information = props.information;
     this.links = props.links;
-    this.video = props.video;
-
-    this.displayLink = this.links[format("video{0}", this.video)]
 
     this.state = {
+      video: props.video,
       inputValue: 50,
       time: 0
     };
-
+     
+    this.displayLink = this.links[format("video{0}", this.state.video)]
+    this.feature = this.links[format("feature{0}", this.state.video)]
+    this.endTime = this.links[format("endTime{0}", this.state.video)]
+    this.startTime = this.links[format("startTime{0}", this.state.video)]
+    
     this.snapshots = [];
-  }
-
-  changePage = event => {
-    console.log(event)
   }
 
   handleSubmit = event => {
@@ -35,7 +34,7 @@ export class ExamplePage extends React.Component {
     const user_snapshots = {
       user: this.observerName,
       information: this.information,
-      video: this.video,
+      video: this.state.video,
       snaps: this.snapshots
     }
 
@@ -45,12 +44,11 @@ export class ExamplePage extends React.Component {
       { user_snapshots },
       { headers: { 'content-type': 'application/json' } })
       .then(res => {
-        console.log(res);
-        console.log(res.data);
+        
 
         if (res.data.statusCode === 200) {
-          console.log('s')
           alert("Success! Thank you! Registered in the database");
+          this.snapshots = [];
         }
       })
   }
@@ -60,8 +58,9 @@ export class ExamplePage extends React.Component {
   }
 
   handlePrepSeq(player) {
-    player.seekTo(10.0, "seconds")
-    console.log("started")
+
+    player.seekTo(this.startTime, "seconds");
+    this.player.getInternalPlayer().playVideo()
     this.setState({ playing: true })
   }
 
@@ -74,10 +73,12 @@ export class ExamplePage extends React.Component {
       inputValue: newValue,
       time: this.player.getCurrentTime()
     });
-    console.log("changed to " + this.state.inputValue)
+
+    if(this.player.getCurrentTime()>this.endTime) {
+      this.player.getInternalPlayer().pauseVideo()
+    }
+
     let time = this.player.getCurrentTime()
-    console.log("played " + time)
-    console.log(this.observerName)
 
     let currState = this.state
     this.snapshots.push(currState)
@@ -86,26 +87,34 @@ export class ExamplePage extends React.Component {
     console.log("Snapshot " + this.snapshots)
   };
 
+  changePage(newPage) {
+    this.setState({ video: newPage });
+    console.log("changed" + this.state.video)
+  }
+
+  displayFinalScore() {
+
+    if (this.player) {
+      console.log(this.player.getCurrentTime());
+      return (this.player.getCurrentTime() > 2.0 ? "required" : "disabled");
+    } else {
+      return "disabled";
+    }
+  }
+
   render() {
     return (
       <div className="ExamplePage">
         <header>
-  
+
         </header>
         <body className="ExamplePage-body">
-          <p className="ExamplePage-instructions">
-            This is the tutorial page, for you to test the interface.
-            When you start the video, it will jump to the important section, that I would like you to rate.
-            Please watch and assess until it automatically stops.
-            I would like you to assess continously, and to move the slider as the video plays. You can use the keyboard to move the slider once you click on it once.
-          </p>
-          <p className="ExamplePage-instructions">
-            Please click submit, at the bottom of the page, when you finished watching.
-          </p>
+
           Please rate how engaging you find the video, looking at the
 
           <p className='Feature'>
-            POSE
+            {this.feature.toUpperCase()}
+            
           </p>
 
 
@@ -113,6 +122,7 @@ export class ExamplePage extends React.Component {
             <ReactPlayer
               ref={this.ref}
               className='react-player'
+              player = {this.playing}
               url={this.displayLink}
               onStart={e => this.handlePrepSeq(this.player)}
             />
@@ -136,13 +146,17 @@ export class ExamplePage extends React.Component {
               min={-5}
               max={5} />
 
+            <TextField id="score" label="Please add overall score" variant="outlined"  />
+            <br />
+            <br />
 
             <Button color="success" type="submit" variant="contained" onClick={this.handleSubmit}>Submit</Button>
           </div>
+
         </body>
-        
+
       </div>
-      
+
     );
   }
 }
