@@ -69,12 +69,19 @@ export class App extends React.Component {
 
           </Box> 
 
+          <br/>
+
           <nav>
             <ConditionalLink to="/tutorial" 
             passState={this.state}
             links = {this.state.links}
+            children={"Let's Go!"}
             >Let's Go!</ConditionalLink>
           </nav>
+
+          <p style={{"fontSize":20}}>
+            Please allow a second after you put the passcode for the links to load.
+          </p>
         </header>
       </div>
     );
