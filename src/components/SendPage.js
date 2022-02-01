@@ -24,10 +24,10 @@ function SendPage() {
                 <br/>
                 Please add a <b>final, overall score</b> when you finished watching the sequence. 
                 <br/>
-                I would like you to assess continously, and to move the slider as the video plays. You can use the keyboard to move the slider once you click on it once.
+                I would like you to assess continously, and to move the slider as the video plays. You can use the keyboard to move the slider when you click on it once.
                 <br/>
 
-                You will asked to rate one feature or the overall performance. If you are asked to rate a feature, I mean the following:
+                You will be asked to rate one feature or the overall performance. If you are asked to rate a feature, I mean the following:
                 <br/>
                 <br/>
                 <b>POSE</b> - you can assess the body posture, use of gestures and/or movements around the room: how engaging is it to you?
