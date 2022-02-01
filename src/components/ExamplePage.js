@@ -19,12 +19,12 @@ export class ExamplePage extends React.Component {
       inputValue: 50,
       time: 0
     };
-     
+
     this.displayLink = this.links[format("video{0}", this.state.video)]
     this.feature = this.links[format("feature{0}", this.state.video)]
     this.endTime = this.links[format("endTime{0}", this.state.video)]
     this.startTime = this.links[format("startTime{0}", this.state.video)]
-    
+
     this.snapshots = [];
   }
 
@@ -44,7 +44,7 @@ export class ExamplePage extends React.Component {
       { user_snapshots },
       { headers: { 'content-type': 'application/json' } })
       .then(res => {
-        
+
 
         if (res.data.statusCode === 200) {
           alert("Success! Thank you! Registered in the database");
@@ -74,7 +74,7 @@ export class ExamplePage extends React.Component {
       time: this.player.getCurrentTime()
     });
 
-    if(this.player.getCurrentTime()>this.endTime) {
+    if (this.player.getCurrentTime() > this.endTime) {
       this.player.getInternalPlayer().pauseVideo()
     }
 
@@ -114,7 +114,6 @@ export class ExamplePage extends React.Component {
 
           <p className='Feature'>
             {this.feature.toUpperCase()}
-            
           </p>
 
 
@@ -122,7 +121,7 @@ export class ExamplePage extends React.Component {
             <ReactPlayer
               ref={this.ref}
               className='react-player'
-              player = {this.playing}
+              player={this.playing}
               url={this.displayLink}
               onStart={e => this.handlePrepSeq(this.player)}
             />
@@ -146,7 +145,10 @@ export class ExamplePage extends React.Component {
               min={-5}
               max={5} />
 
-            <TextField id="score" label="Please add overall score" variant="outlined"  />
+            <p style={{ "fontSize": 15 }}>
+              Please add a score between 1 and 10, for how engaging the overall video was.
+            </p>
+            <TextField id="score" label="Please add overall score" variant="outlined" />
             <br />
             <br />
 
