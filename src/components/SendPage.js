@@ -43,7 +43,7 @@ function SendPage() {
             <ExamplePage observerName={observerName}
                 information={information}
                 links={links}
-                video={1}
+                video={0}
             />
             <NavBar state={location.state}
                     video={video}/>
