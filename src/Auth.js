@@ -1,9 +1,7 @@
 import './Auth.css';
 import React from 'react';
-import { TextField, Button } from '@mui/material';
+import { TextField, Box } from '@mui/material';
 import ConditionalLink from './components/ConditionalLink';
-import axios from 'axios';
-import { Box } from '@mui/material/node_modules/@mui/system';
 
 export class App extends React.Component {
 
