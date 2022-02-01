@@ -16,6 +16,7 @@ export class ExamplePage extends React.Component {
 
     this.state = {
       video: props.video,
+      finalScore: 5,
       inputValue: 50,
       time: 0
     };
@@ -35,6 +36,7 @@ export class ExamplePage extends React.Component {
       user: this.observerName,
       information: this.information,
       video: this.state.video,
+      finalScore : this.state.finalScore,
       snaps: this.snapshots
     }
 
@@ -90,6 +92,11 @@ export class ExamplePage extends React.Component {
   changePage(newPage) {
     this.setState({ video: newPage });
     console.log("changed" + this.state.video)
+  }
+  
+  changeFinalScore(score) {
+    this.setState({ finalScore: score });
+    console.log("final Score: ", this.state.finalScore)
   }
 
   displayFinalScore() {
@@ -148,7 +155,7 @@ export class ExamplePage extends React.Component {
             <p style={{ "fontSize": 15 }}>
               Please add a score between 1 and 10, for how engaging the overall video was.
             </p>
-            <TextField id="score" label="Please add overall score" variant="outlined" />
+            <TextField id="score" label="Please add overall score" variant="outlined" onChange={e => this.changeFinalScore(e.target.value)}/>
             <br />
             <br />
 
