@@ -10,6 +10,7 @@ import Page1 from './components/pages/Page1';
 import Page2 from './components/pages/Page2';
 import Page3 from './components/pages/Page3';
 import Page4 from './components/pages/Page4';
+import Page5 from './components/pages/Page5';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -22,6 +23,7 @@ ReactDOM.render(
         <Route path="video2" element={<Page2 />} />
         <Route path="video3" element={<Page3 />} />
         <Route path="video4" element={<Page4 />} />
+        <Route path="video5" element={<Page5 />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
