@@ -36,6 +36,10 @@ function NavBar({ video, state }) {
                     <Link to='/video5'
                         state={state}>Video 5</Link>
                 </Button>
+                <Button variant={SetUnderline(6)}>
+                    <Link to='/video6'
+                        state={state}>Video 6</Link>
+                </Button>
                 </Stack>
             </ul>
         </nav>

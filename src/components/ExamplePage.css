@@ -1,6 +1,7 @@
 .ExamplePage {
     text-align: center;
     align-items: center;
+    align-content: center;
 }
 
 .ExamplePage-body {
@@ -24,9 +25,15 @@
 .ExamplePage-instructions {
     font-size: calc(10px + 1vmin) ;
     width: 60%;
-    padding: auto;
+    padding: 10px;
+    border-style: solid;
+    border-color: gray;
+    border-radius: 5px;
 }
 
 .contents {
     align-content: center;
+    align-items: center;
+    text-align: center;
+    align-self: center;
 }

@@ -19,27 +19,22 @@ function SendPage() {
         <div className='SendPage-body'>
             <p className="ExamplePage-instructions">
                 This is the tutorial page, for you to test the interface.
+                There are 6 videos I would like you to watch.
+                Each video plays for around 5 minutes, so in total this survey should take 25-30 minutes.
                 When you start the video, it will jump to the important section, that I would like you to rate.
+                <br/>
+                It will pause at the end of the selected sequence.
                 Please watch and assess until it automatically stops.
                 <br/>
-                Please add a <b>final, overall score</b> when you finished watching the sequence. 
                 <br/>
-                I would like you to assess continously, and to move the slider as the video plays. You can use the keyboard to move the slider when you click on it once.
-                <br/>
-
-                You will be asked to rate one feature or the overall performance. If you are asked to rate a feature, I mean the following:
+                Please provide a <b>continuous asssement</b> WHILST watching the video using the slider
+                and add a <b>final, overall score</b> AFTER you finished watching the sequence. 
                 <br/>
                 <br/>
-                <b>POSE</b> - you can assess the body posture, use of gestures and/or movements around the room: how engaging is it to you?
-                <br/>
-                <b>FACIAL EXPRESSION </b>-  you can assess the facial expressivity  (do they smile, are they animated?): how engaging is it to you?
-                <br/>
-                <b>VOICE</b> - you can assess the rhythm, vocal tone (happy, enthusiastic or bored), and/or how animated the voice is, but not the content: how engaging is it to you?
-
+                Please click submit, at the bottom of the page, after you finished watching.
+                
             </p>
-            <p className="ExamplePage-instructions">
-                Please click submit, at the bottom of the page, when you finished watching.
-            </p>
+      
             <ExamplePage observerName={observerName}
                 information={information}
                 links={links}

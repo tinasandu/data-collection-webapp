@@ -49,7 +49,8 @@ export class ExamplePage extends React.Component {
 
 
         if (res.data.statusCode === 200) {
-          alert("Success! Thank you! Registered in the database");
+          alert("Success! Thank you! Collected your scores.\
+ Please navigate to the next video, by clicking on the next video down the page");
           this.snapshots = [];
         }
       })
@@ -63,7 +64,6 @@ export class ExamplePage extends React.Component {
 
     player.seekTo(this.startTime, "seconds");
     this.player.getInternalPlayer().playVideo()
-    this.setState({ playing: true })
   }
 
   handleSliderChange(newValue) {
@@ -79,8 +79,6 @@ export class ExamplePage extends React.Component {
     if (this.player.getCurrentTime() > this.endTime) {
       this.player.getInternalPlayer().pauseVideo()
     }
-
-    let time = this.player.getCurrentTime()
 
     let currState = this.state
     this.snapshots.push(currState)
@@ -116,8 +114,23 @@ export class ExamplePage extends React.Component {
 
         </header>
         <body className="ExamplePage-body">
+          <p className="ExamplePage-instructions">
+                I would like you to assess continously, and to move the slider as the video plays. You can use the keyboard to move the slider when you click on it once.
+                <br/>
 
-          Please rate how engaging you find the video, looking at the
+                You will be asked to rate one feature or the overall performance. If you are asked to rate a feature, I mean the following:
+                <br/>
+                <br/>
+
+                <b>POSE</b> - you can assess the body posture, use of gestures and/or movements around the room: how engaging is it to you?
+                <br/>
+                <b>FACIAL EXPRESSION </b>-  you can assess the facial expressivity  (do they smile, are they animated?): how engaging is it to you?
+                <br/>
+                <b>VOICE</b> - you can assess the rhythm, vocal tone (happy, enthusiastic or bored), and/or how animated the voice is, but not the content: how engaging is it to you?
+
+          </p>
+
+          Please rate CONTINUOUSLY, using the slider, how engaging you find the video, looking at the:
 
           <p className='Feature'>
             {this.feature.toUpperCase()}
@@ -128,10 +141,11 @@ export class ExamplePage extends React.Component {
             <ReactPlayer
               ref={this.ref}
               className='react-player'
-              player={this.playing}
               url={this.displayLink}
               onStart={e => this.handlePrepSeq(this.player)}
             />
+            <br/>
+            <br/>
 
             <Slider
               defaultValue={0}
@@ -152,10 +166,12 @@ export class ExamplePage extends React.Component {
               min={-5}
               max={5} />
 
-            <p style={{ "fontSize": 15 }}>
+            <p style={{ "fontSize": 18 }}>
               Please add a score between 1 and 10, for how engaging the overall video was.
+              <br/>
+              Only one score is necessary, AFTER watching the video.
             </p>
-            <TextField id="score" label="Please add overall score" variant="outlined" onChange={e => this.changeFinalScore(e.target.value)}/>
+            <TextField  type="number" id="score" label="Please add overall score" variant="outlined" onChange={e => this.changeFinalScore(e.target.value)}/>
             <br />
             <br />
 
