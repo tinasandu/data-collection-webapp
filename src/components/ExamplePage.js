@@ -73,7 +73,7 @@ export class ExamplePage extends React.Component {
     }
     this.setState({
       inputValue: newValue,
-      time: this.player.getCurrentTime()
+      time: this.player.getCurrentTime().toFixed(2)
     });
 
     if (this.player.getCurrentTime() > this.endTime) {

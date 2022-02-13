@@ -28,6 +28,7 @@ export class App extends React.Component {
   }
 
   render() {
+  document.title = 'Teaching Videos'
     return (
       <div className="App">
         <header className="App-header">
