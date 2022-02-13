@@ -15,7 +15,7 @@ import Page6 from './components/pages/Page6';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename="/data-col-test">
+    <BrowserRouter basename="/data-collection-webapp">
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="example" element={<ExamplePage />} />
