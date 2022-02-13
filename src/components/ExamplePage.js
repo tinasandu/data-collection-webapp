@@ -167,7 +167,7 @@ export class ExamplePage extends React.Component {
               max={5} />
 
             <p style={{ "fontSize": 18 }}>
-              Please add a score between 1 and 10, for how engaging the overall video was.
+              Please add a score between -5 and 5, for how engaging the overall video was.
               <br/>
               Only one score is necessary, AFTER watching the video.
             </p>
