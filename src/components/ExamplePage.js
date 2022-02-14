@@ -175,6 +175,10 @@ export class ExamplePage extends React.Component {
             <br />
             <br />
 
+            <p style={{ "fontSize": 18 }}>
+              Please submit when you finish rating each video.
+            </p>
+            
             <Button color="success" type="submit" variant="contained" onClick={this.handleSubmit}>Submit</Button>
           </div>
 

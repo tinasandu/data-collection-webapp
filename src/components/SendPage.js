@@ -31,7 +31,7 @@ function SendPage() {
                 and add a <b>final, overall score</b> AFTER you finished watching the sequence. 
                 <br/>
                 <br/>
-                Please click submit, at the bottom of the page, after you finished watching.
+                Please click submit, at the bottom of the page, after you finish watching EACH video.
                 
             </p>
       
