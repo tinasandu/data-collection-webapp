@@ -36,6 +36,7 @@ export class ExamplePage extends React.Component {
       user: this.observerName,
       information: this.information,
       video: this.state.video,
+      feature : this.feature,
       finalScore : this.state.finalScore,
       snaps: this.snapshots
     }
