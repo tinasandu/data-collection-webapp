@@ -9,17 +9,18 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: black; 
+    padding-bottom: 5%;
 }
 
-.navbar {
-    margin:30px;
-}
-.ExamplePage-instructions {
+.SendPage-instructions {
     font-size: calc(10px + 1vmin) ;
     width: 70%;
-    padding: auto;
+    padding: 10px;
     align-content: center;
     text-align: left;
+    border-style: solid;
+    border-color: gray;
+    border-radius: 5px;
 }
 
 .SendPage {

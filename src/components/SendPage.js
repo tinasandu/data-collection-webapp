@@ -17,32 +17,32 @@ function SendPage() {
 
     return (
         <div className='SendPage-body'>
-            <p className="ExamplePage-instructions">
+            <p className="SendPage-instructions">
                 This is the tutorial page, for you to test the interface.
                 There are 6 videos I would like you to watch.
                 Each video plays for around 5 minutes, so in total this survey should take 25-30 minutes.
                 When you start the video, it will jump to the important section, that I would like you to rate.
-                <br/>
+                <br />
                 It will pause at the end of the selected sequence.
                 Please watch and assess until it automatically stops.
-                <br/>
-                <br/>
+                <br />
+                <br />
                 Please provide a <b>continuous asssement</b> WHILST watching the video using the slider
-                and add a <b>final, overall score</b> AFTER you finished watching the sequence. 
-                <br/>
-                <br/>
+                and add a <b>final, overall score</b> AFTER you finished watching the sequence.
+                <br />
+                <br />
                 Please click submit, at the bottom of the page, after you finish watching EACH video.
-                
+
             </p>
-      
+
             <ExamplePage observerName={observerName}
                 information={information}
                 links={links}
                 video={0}
             />
-            <NavBar state={location.state}
-                    video={video}/>
-            <div />
+            <br/>
+                <NavBar state={location.state}
+                    video={video} />
         </div>
     )
 

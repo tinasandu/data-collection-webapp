@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import './ConditionalLink.css'
 import { CircularProgress, Stack, Box, Button } from "@mui/material"
 
 
@@ -29,16 +30,18 @@ function ConditionalLink({ children, to, passState }) {
 
         if (go) {
             return (
-                <Box sx={{ p: 1, border: 1, borderColor: 'secondary.main', borderRadius: '4%' }}>
+                <div className='style'>
+                
                     <Stack spacing={2} direction="row" alignContent="center">
                         <CircularProgress />
                         <Button label="Retrieving the videos" variant="text">Retrieving Videos</Button>
                     </Stack>
-                </Box>
+                
+                </div>
             );
         } else {
             return (
-                <Box sx={{ p: 1, border: 1, borderColor: 'secondary.main', borderRadius: '4%' }}>
+                <div className='style'>
                     <Link to={to}
                         style={{"font-size":25}}
                         state={{
@@ -47,7 +50,7 @@ function ConditionalLink({ children, to, passState }) {
                             links: links
                         }}
                     >{children}</Link>
-                </Box>
+                </div>
             );
         }
 

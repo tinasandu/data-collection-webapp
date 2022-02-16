@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Stack } from "@mui/material";
+import { Button, FormGroup } from "@mui/material";
 import { Link } from "react-router-dom";
 
 function NavBar({ video, state }) {
@@ -9,9 +9,8 @@ function NavBar({ video, state }) {
     }
 
     return (
-        <nav>
-            <ul>
-            <Stack spacing={1} direction="row">
+        <div>
+            <FormGroup row>
                 <Button variant={SetUnderline(0)}>
                     <Link to='/tutorial'
                         state={state}>Tutorial</Link>
@@ -40,9 +39,8 @@ function NavBar({ video, state }) {
                     <Link to='/video6'
                         state={state}>Video 6</Link>
                 </Button>
-                </Stack>
-            </ul>
-        </nav>
+                </FormGroup>
+        </div>
     );
 }
 
