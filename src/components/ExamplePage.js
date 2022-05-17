@@ -17,8 +17,9 @@ export class ExamplePage extends React.Component {
     this.state = {
       video: props.video,
       finalScore: 5,
-      inputValue: 50,
-      time: 0
+      inputValue: 0,
+      time: 0,
+      prevScore: 0
     };
 
     this.displayLink = this.links[format("video{0}", this.state.video)]
@@ -52,7 +53,7 @@ export class ExamplePage extends React.Component {
         if (res.data.statusCode === 200) {
           alert("Success! Thank you! Collected your scores.\
  Please navigate to the next video, by clicking on the next video down the page");
-          this.snapshots = [];
+          // this.snapshots = [];
         }
       })
   }
@@ -81,9 +82,13 @@ export class ExamplePage extends React.Component {
       this.player.getInternalPlayer().pauseVideo()
     }
 
-    let currState = this.state
-    this.snapshots.push(currState)
+    if (this.state.prevScore !== this.state.inputValue) {
 
+      const currState = {inputValue: this.state.inputValue, time : this.state.time}
+      this.setState({ prevScore: this.state.inputValue });
+
+      this.snapshots.push(currState)
+    }
 
     console.log("Snapshot " + this.snapshots)
   };
@@ -91,6 +96,7 @@ export class ExamplePage extends React.Component {
   changePage(newPage) {
     this.setState({ video: newPage });
     console.log("changed" + this.state.video)
+    this.snapshots = [];
   }
 
   changeFinalScore(score) {
