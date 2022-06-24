@@ -1,0 +1,44 @@
+var AWS = require("aws-sdk");
+    var docClient = new AWS.DynamoDB.DocumentClient();
+
+
+exports.handler = async (event) => {
+            console.log("Received data: ", JSON.stringify(event, null, 2));
+
+
+    var table = "Engagment_Scores_for_Video_DataSet";
+
+    var params = {
+    TableName: table,
+    Item:{
+        "user": event.user_snapshots.user + "_" + event.user_snapshots.video,
+        "degree": event.user_snapshots.information,
+        "video": event.user_snapshots.video,
+        "feature": event.user_snapshots.feature,
+        "final score": event.user_snapshots.finalScore,
+        "snapshots": event.user_snapshots.snaps
+        }
+    };
+
+    console.log("Adding a new item...");
+    try {
+        await docClient.put(params).promise();
+        console.log("Added item");
+
+    } catch (err) {
+            console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
+            
+            const response = {
+                statusCode: 400,
+                body: JSON.stringify('Unable', null, 2),
+            };
+            return response;
+    }
+    
+    
+    const response = {
+        statusCode: 200,
+        body: JSON.stringify('Received data', event, 2),
+    };
+    return response;
+};

@@ -1,0 +1,60 @@
+exports.handler = (event, context, callback) => {
+
+    var response;
+    const pass = event.headers["pass"]
+    
+    console.log("header is: " +  event.headers["pass"])
+    
+    // features to be asked
+    
+    const featureSet1 = ["POSE", "VOICE", "FACIAL EXPRESSION", "OVERALL PERFORMANCE", "POSE", "VOICE"]
+    
+    const featureSet2 = ["VOICE", "FACIAL EXPRESSION", "OVERALL PERFORMANCE", "POSE", "VOICE", "FACIAL EXPRESSION"]
+    
+    const featureSet3 = ["FACIAL EXPRESSION", "OVERALL PERFORMANCE", "POSE", "VOICE", "FACIAL EXPRESSION", "OVERALL PERFORMANCE"]
+    
+    const featureSet4 = ["OVERALL PERFORMANCE", "POSE", "VOICE", "FACIAL EXPRESSION", "OVERALL PERFORMANCE", "POSE"]
+    
+    const features = [featureSet1, featureSet2, featureSet3, featureSet4]
+    
+    const ln = pass.length
+    
+    if (ln !== 6) {
+        console.log(pass.length)
+        response = {
+        statusCode: 400,
+        body: JSON.stringify('Sorry, add the password again'),
+        };
+        
+        callback(null, response);
+    }
+    
+    const rootPass = pass.substring(0,5);
+    console.log(rootPass);
+    
+    const index = parseInt(pass.charAt(5)) - 1; 
+    console.log(index);
+    
+    if (rootPass !== "pl4nt" || index > 3 ) {
+        response = {
+        statusCode: 400,
+        body: JSON.stringify('Sorry, add the password again'),
+        };
+        
+    } else {
+    
+        response = {
+        statusCode: 200,
+        body: JSON.stringify('Amazing, continue!'), 
+        links = {
+		// cut to preserve intellectual property
+		}
+        };    
+    } 
+        
+    
+    
+console.log("status code is: ", response.statusCode)
+console.log(event)
+callback(null, response);
+};
