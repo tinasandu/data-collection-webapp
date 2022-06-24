@@ -1,3 +1,3 @@
-## Hi!
+## Data Collection Web Application
 
-Please watch the videos and follow the instructions.
+Simple interface, embedding a video and a slider component used to rate the facial expressions, body movements, voice and overall performance of the speakers.
